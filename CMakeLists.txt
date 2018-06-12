@@ -7,15 +7,15 @@ find_package(catkin REQUIRED
     std_msgs
 )
 
-#add_service_files(
-#  FILES ResizeParticle.srv
-#)
-#add_message_files(
-#  FILES Status.msg
-#)
-#generate_messages(
-#  DEPENDENCIES std_msgs
-#)
+add_service_files(
+  FILES ResizeParticle.srv
+)
+add_message_files(
+  FILES Status.msg
+)
+generate_messages(
+  DEPENDENCIES std_msgs
+)
 
 catkin_package(
   CATKIN_DEPENDS std_msgs
