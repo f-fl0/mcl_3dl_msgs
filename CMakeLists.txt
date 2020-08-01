@@ -1,19 +1,17 @@
-cmake_minimum_required(VERSION 2.8.3)
+cmake_minimum_required(VERSION 3.5)
 project(mcl_3dl_msgs)
 
 set(MESSAGE_DEPENDS
   std_msgs
 )
 
-find_package(catkin REQUIRED COMPONENTS message_generation ${MESSAGE_DEPENDS})
+find_package(ament_cmake REQUIRED)
 
-add_service_files(
-  FILES
-    ResizeParticle.srv
+find_package(rosidl_default_generators REQUIRED)
+
+rosidl_generate_interfaces(${PROJECT_NAME}
+  "msg/Status.msg"
+  "srv/ResizeParticle.srv"
 )
-add_message_files(
-  FILES
-    Status.msg
-)
-generate_messages(DEPENDENCIES ${MESSAGE_DEPENDS})
-catkin_package(CATKIN_DEPENDS message_runtime ${MESSAGE_DEPENDS})
+
+ament_package()
